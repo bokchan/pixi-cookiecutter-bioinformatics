@@ -236,7 +236,7 @@ def git_add_remote(remote: str, url: str, protocol: PROTOCOL = "https") -> None:
     call(f"git remote add {remote} {url}")
 
 
-def github_setup(privacy: str, remote: str = "origin", default_branch: str = "master") -> None:
+def github_setup(privacy: str, remote: str = "origin", default_branch: str = "main") -> None:
     """
     Make a repository on GitHub (requires GitHub CLI).
 
