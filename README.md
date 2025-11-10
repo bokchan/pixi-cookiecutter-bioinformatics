@@ -6,6 +6,10 @@
 [![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/bokchan/pixi-cookiecutter-bioinformations/test.yml?branch=master&logo=github-actions)](https://github.com/bokchan/pixi-cookiecutter-bioinformations/actions/)
 [![Codecov](https://img.shields.io/codecov/c/github/jevandezande/pixi-cookiecutter)](https://app.codecov.io/github/jevandezande/pixi-cookiecutter)
 
+_A logical, reasonably standardized, but flexible project structure for doing and sharing bioinformatics work._
+
+This cookiecutter template was developed by the [Max Planck Institute of Immunobiology and Epigenetics Bioinformatics Core Facility](https://www.ie-freiburg.mpg.de/bioinformatics) with the aim of establishing a standardized project directory structure within the institute. It is a fork of [cookiecutter-fair-data-science](https://github.com/FAIR4HEP/cookiecutter-fair-data-science), with a healthy dose of [Snakemake workflow best practices](https://snakemake.readthedocs.io/en/stable/snakefiles/deployment.html#distribution-and-reproducibility) mixed in. There is less focus on building a python package that can train and run machine learning models, but rather on building bioinformatics workflows that can run on the MPI-IE cluster according to [FAIR principles](https://www.go-fair.org/fair-principles/).
+
 [Cookiecutter](https://github.com/audreyr/cookiecutter) for setting up [pixi](https://pixi.sh/) projects with all the necessary features for modern python development.
 
 ## Features
@@ -36,13 +40,22 @@ See [notes.md](notes.md#Project-Tools) for optional dependencies and [alternativ
 cookiecutter gh:bokchan/pixi-cookiecutter-bioinformations
 ```
 
-The cookiecutter will automagically
+The cookiecutter will automatically
 - Generate a project with the input configuration
 - Initialize git
 - Setup environment
 - Setup pre-commit and pre-push hooks
 - Make initial commit
 - Sets up remote on GitHub (optional)
+
+### The resulting directory structure
+------------
+
+The directory structure of your new project looks like this:
+
+```
+Update after merging the Max Planck Cookiecutter template
+```
 
 
 ## Recommendations
@@ -51,3 +64,7 @@ The cookiecutter will automagically
 - Install [direnv](https://pixi.sh/latest/integration/third_party/direnv) to automagically load the environment.
 
 Read [notes](notes.md) for more tips.
+
+## Contributing
+
+We welcome contributions! Feel free to fork and add pull requests.
