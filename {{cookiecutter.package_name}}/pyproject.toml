@@ -66,6 +66,7 @@ select = [
 ]
 ignore = [
     "D100", # Missing docstring in public module
+    "D104", # Missing docstring in public package
     "N806", # Non-lowercase variable in function
     "PLR0911", # Too many returns
     "PLR0912", # Too many branches
