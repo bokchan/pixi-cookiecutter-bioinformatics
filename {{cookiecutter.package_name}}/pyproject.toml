@@ -43,6 +43,7 @@ ty = "*"
 
 [tool.ruff]
 line-length = {{cookiecutter.line_length}}
+extend-exclude = ["docs/conf.py"]
 
 [tool.ruff.lint]
 select = [
