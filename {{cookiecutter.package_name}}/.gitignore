@@ -177,3 +177,9 @@ pyrightconfig.json
 
 # Pixi
 .pixi
+
+# workflow-specific directories
+workspace/
+resources/
+results/
+sandbox/
