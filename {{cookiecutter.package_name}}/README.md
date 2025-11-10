@@ -11,7 +11,7 @@
 
 Project Organization
 ------------
-
+```
 ├── CITATION.cff       <- Contains metadata on how the project might eventually be published.
 ├── LICENSE
 ├── Makefile           <- Makefile with commands like `make data` or `make train`
@@ -60,7 +60,7 @@ Project Organization
 │   ├── Snakefile      <- Contains the main entrypoint to the pipeline.
 │
 ├── workspace          <- Space for intermediate results in the pipeline. By default excluded from the git repository.
-
+```
 --------
 
 ## Credits
