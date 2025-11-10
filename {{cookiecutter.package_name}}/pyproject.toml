@@ -7,7 +7,7 @@ license = "{{cookiecutter.license}}"
 version = "0.0.1"
 readme = "README.md"
 keywords = []
-authors = [{name = "{{cookiecutter.author_name}}"{% if cookiecutter.email and cookiecutter.email.strip() %}, email = "{{cookiecutter.email}}"{% endif %}}]
+authors = [{name = "{{cookiecutter.author_name}}"]
 requires-python = ">={python_version}"
 
 [tool.pixi.workspace]
