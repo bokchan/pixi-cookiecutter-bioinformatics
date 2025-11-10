@@ -61,6 +61,7 @@ select = [
     "ICN001", # unconventional-import-alias
 ]
 ignore = [
+    "D100", # Missing docstring in public module
     "N806", # Non-lowercase variable in function
     "PLR0911", # Too many returns
     "PLR0912", # Too many branches
