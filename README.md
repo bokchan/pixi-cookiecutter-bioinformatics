@@ -1,10 +1,14 @@
 # Pixi Cookiecutter
-[![License](https://img.shields.io/github/license/jevandezande/pixi-cookiecutter)](https://github.com/jevandezande/pixi-cookiecutter/blob/master/LICENSE)
+[![License](https://img.shields.io/github/license/bokchan/pixi-cookiecutter-bioinformatics)](https://github.com/bokchan/pixi-cookiecutter-bioinformatics/blob/main/LICENSE)
 [![Powered by: Pixi](https://img.shields.io/badge/powered_by-pixi-facc15)](https://pixi.sh)
 [![Code style: ruff](https://img.shields.io/badge/code_style-ruff-000000.svg)](https://github.com/astral-sh/ruff)
 [![Typing: ty](https://img.shields.io/badge/typing-ty-EFC621.svg)](https://github.com/astral-sh/ty)
-[![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/jevandezande/pixi-cookiecutter/test.yml?branch=master&logo=github-actions)](https://github.com/jevandezande/pixi-cookiecutter/actions/)
-[![Codecov](https://img.shields.io/codecov/c/github/jevandezande/pixi-cookiecutter)](https://app.codecov.io/github/jevandezande/pixi-cookiecutter)
+[![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/bokchan/pixi-cookiecutter-bioinformatics/test.yml?branch=main&logo=github-actions)](https://github.com/bokchan/pixi-cookiecutter-bioinformatics/actions/)
+[![Codecov](https://img.shields.io/codecov/c/github/bokchan/pixi-cookiecutter-bioinformatics)](https://app.codecov.io/github/bokchan/pixi-cookiecutter-bioinformatics)
+
+_A logical, reasonably standardized, but flexible project structure for doing and sharing bioinformatics work._
+
+This cookiecutter template was developed by the [Max Planck Institute of Immunobiology and Epigenetics Bioinformatics Core Facility](https://www.ie-freiburg.mpg.de/bioinformatics) with the aim of establishing a standardized project directory structure within the institute. It is a fork of [cookiecutter-fair-data-science](https://github.com/FAIR4HEP/cookiecutter-fair-data-science), with a healthy dose of [Snakemake workflow best practices](https://snakemake.readthedocs.io/en/stable/snakefiles/deployment.html#distribution-and-reproducibility) mixed in. There is less focus on building a python package that can train and run machine learning models, but rather on building bioinformatics workflows that can run on the MPI-IE cluster according to [FAIR principles](https://www.go-fair.org/fair-principles/).
 
 [Cookiecutter](https://github.com/audreyr/cookiecutter) for setting up [pixi](https://pixi.sh/) projects with all the necessary features for modern python development.
 
@@ -33,16 +37,47 @@ See [notes.md](notes.md#Project-Tools) for optional dependencies and [alternativ
 
 ```sh
 # Use cookiecutter to create a project from this template
-cookiecutter gh:jevandezande/pixi-cookiecutter
+cookiecutter gh:bokchan/pixi-cookiecutter-bioinformatics
 ```
 
-The cookiecutter will automagically
+The cookiecutter will automatically
 - Generate a project with the input configuration
 - Initialize git
 - Setup environment
 - Setup pre-commit and pre-push hooks
 - Make initial commit
 - Sets up remote on GitHub (optional)
+
+### The resulting directory structure
+------------
+
+The directory structure of your new project looks like this:
+
+```
+├── .coveragerc        <- Configuration for coverage.py
+├── .editorconfig      <- EditorConfig for consistent coding style
+├── .envrc             <- Environment configuration for direnv
+├── .github/           <- GitHub workflows and configuration
+├── .gitignore         <- Git ignore file
+├── .pre-commit-config.yaml <- Pre-commit hooks configuration
+├── LICENSE            <- Project license file
+├── README.md          <- The top-level README for developers using this project
+├── pyproject.toml     <- Project configuration and dependencies managed by pixi
+├── config/            <- Configuration files for analysis
+├── docs/              <- Sphinx documentation
+├── img/               <- Images and figures
+├── notebooks/         <- Jupyter notebooks for exploration and analysis
+├── references/        <- Data dictionaries, manuals, and explanatory materials
+├── reports/           <- Generated analysis outputs
+├── resources/         <- Raw and external data (excluded from git)
+├── sandbox/           <- Testing and experimentation space (excluded from git)
+├── scripts/           <- Utility scripts
+├── src/               <- Source code for the project
+├── tests/             <- Unit tests
+├── workflow/          <- Snakemake workflow files
+├── workspace/         <- Intermediate results (excluded from git)
+└── [package_name]/    <- Main Python package
+```
 
 
 ## Recommendations
@@ -52,4 +87,6 @@ The cookiecutter will automagically
 
 Read [notes](notes.md) for more tips.
 
-If you are interested in using Poetry to manage your project, checkout [poetry-cookiecutter](https://github.com/jevandezande/poetry-cookiecutter), which served as a template for this cookiecutter.
+## Contributing
+
+We welcome contributions! Feel free to fork and add pull requests.

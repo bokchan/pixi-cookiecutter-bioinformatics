@@ -1,6 +1,13 @@
 default_context:
     author_name: "John Smith"
-    email: ""
-    github_username: ""
+    email: "john.smith@example.com"
+    github_username: "johnsmith"
+    project_name: "Pixi Project"
+    description: "A bioinformatics project using pixi for reproducible research"
+    pixi_dependencies: "numpy pandas matplotlib seaborn scipy biopython"
+    pixi_test_dependencies: "pytest-xdist coverage"
+    license: "MIT"
+    github_setup: "public"
 abbreviations:
     bb: https://bitbucket.org/{0}
+    gh: https://github.com/{0}

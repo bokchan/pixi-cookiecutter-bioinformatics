@@ -7,11 +7,11 @@ license = "{{cookiecutter.license}}"
 version = "0.0.1"
 readme = "README.md"
 keywords = []
-authors = [{name = "{{cookiecutter.author_name}}"}]
+authors = [{name = "{{cookiecutter.author_name}}"{% if cookiecutter.email %}, email = "{{cookiecutter.email}}"{% endif %}}]
 requires-python = ">={python_version}"
 
 [tool.pixi.workspace]
-channels = ["conda-forge"]
+channels = ["conda-forge", "bioconda"]
 platforms = ["linux-64", "osx-arm64"]
 
 [tool.pixi.dependencies]
@@ -19,6 +19,17 @@ platforms = ["linux-64", "osx-arm64"]
 
 [tool.pixi.pypi-dependencies]
 {{cookiecutter.package_name}} = { path = ".", editable = true }
+
+[tool.pixi.tasks]
+# Data processing tasks
+clean = "find . -type f -name '*.py[co]' -delete && find . -type d -name '__pycache__' -delete"
+fetch-data = "echo 'Implement fetch of data' && echo 'Suggested commands:' && echo '  ln -s --relative /path/to/your/data resources/raw_data/' && echo '  wget https://url.com/of/your/data -P resources/raw_data/'"
+pipeline = "echo 'Implement running of pipeline' && echo 'Suggested commands:' && echo '  snakemake -s workflow/Snakefile -j 1 all' && echo '  snakemake -s workflow/Snakefile --profile slurm all'"
+data = { depends-on = ["fetch-data", "pipeline"] }
+
+# Utility tasks
+setup = "echo 'Setting up project directories...' && mkdir -p resources/raw_data resources/external results workspace sandbox"
+help = "echo 'Available pixi tasks:' && echo '  clean      - Delete compiled Python files and caches' && echo '  fetch-data - Fetch raw data (implement me!)' && echo '  pipeline   - Execute the data pipeline (implement me!)' && echo '  data       - Make dataset (fetch + pipeline)' && echo '  setup      - Create project directory structure' && echo '' && echo 'Development tasks (use -e dev):' && echo '  fmt        - Format code with ruff' && echo '  lint       - Lint code with ruff' && echo '  test       - Run tests with pytest' && echo '  types      - Check types with ty' && echo '  all        - Run all dev checks (fmt + lint + types + test)'"
 
 [tool.pixi.environments]
 default = { solve-group = "default" }
@@ -43,6 +54,7 @@ ty = "*"
 
 [tool.ruff]
 line-length = {{cookiecutter.line_length}}
+extend-exclude = ["docs/conf.py"]
 
 [tool.ruff.lint]
 select = [
@@ -65,6 +77,8 @@ select = [
     "ICN001", # unconventional-import-alias
 ]
 ignore = [
+    "D100", # Missing docstring in public module
+    "D104", # Missing docstring in public package
     "N806", # Non-lowercase variable in function
     "PLR0911", # Too many returns
     "PLR0912", # Too many branches
