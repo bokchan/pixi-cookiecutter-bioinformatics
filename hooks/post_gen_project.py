@@ -152,10 +152,10 @@ def update_dependencies() -> None:
     dev_dependencies = process_dependencies("""{{cookiecutter.pixi_test_dependencies}} """.strip())
 
     # If no dependencies, add a comment to keep the section valid
-    if not dependencies:
-        dependencies = "# Add your project dependencies here\n"
-    if not dev_dependencies:
-        dev_dependencies = "# Add your test dependencies here\n"
+    # if not dependencies:
+    #     dependencies = "# Add your project dependencies here\n"
+    # if not dev_dependencies:
+    #     dev_dependencies = "# Add your test dependencies here\n"
 
     with open("pyproject.toml") as f:
         contents = (
