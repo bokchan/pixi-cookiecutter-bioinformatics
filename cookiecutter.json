@@ -3,7 +3,6 @@
     "package_name": "{{cookiecutter.project_name.lower().replace(' ', '_').replace('-', '_')}}",
     "description": "A short description of the project.",
     "author_name": "",
-    "email": "",
     "github_username": "",
     "project_url": "https://github.com/{{cookiecutter.github_username}}/{{cookiecutter.package_name}}",
     "pixi_dependencies": "",

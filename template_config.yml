@@ -1,6 +1,5 @@
 default_context:
     author_name: "John Smith"
-    email: "john.smith@example.com"
     github_username: "johnsmith"
     project_name: "Pixi Project"
     description: "A bioinformatics project using pixi for reproducible research"
