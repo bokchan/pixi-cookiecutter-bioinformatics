@@ -1,1 +1,1 @@
-# pipeline-specific functions, common variables, etc.  
+# pipeline-specific functions, common variables, etc.
