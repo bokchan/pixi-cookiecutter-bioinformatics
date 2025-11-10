@@ -3,7 +3,9 @@ name: Test Pixi Cookiecutter
 on:
   pull_request: {}
   push:
-    branches: master
+    branches:
+      - main
+      - master
 
 jobs:
   test:
