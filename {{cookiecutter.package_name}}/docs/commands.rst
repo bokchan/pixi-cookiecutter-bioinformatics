@@ -1,10 +1,10 @@
 Commands
 ========
 
-The Makefile contains the central entry points for common tasks related to this project.
+Pixi is used to manage and run common tasks related to this project.
 
 Data Pipeline
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-* `make fetch_data` needs to be implemented.
-* `make pipeline` needs to be implemented.
+* `pixi run fetch_data` needs to be implemented.
+* `pixi run pipeline` needs to be implemented.
