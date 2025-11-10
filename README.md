@@ -3,8 +3,8 @@
 [![Powered by: Pixi](https://img.shields.io/badge/powered_by-pixi-facc15)](https://pixi.sh)
 [![Code style: ruff](https://img.shields.io/badge/code_style-ruff-000000.svg)](https://github.com/astral-sh/ruff)
 [![Typing: ty](https://img.shields.io/badge/typing-ty-EFC621.svg)](https://github.com/astral-sh/ty)
-[![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/bokchan/pixi-cookiecutter-bioinformations/test.yml?branch=master&logo=github-actions)](https://github.com/bokchan/pixi-cookiecutter-bioinformations/actions/)
-[![Codecov](https://img.shields.io/codecov/c/github/jevandezande/pixi-cookiecutter)](https://app.codecov.io/github/jevandezande/pixi-cookiecutter)
+[![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/bokchan/pixi-cookiecutter-bioinformations/test.yml?branch=main&logo=github-actions)](https://github.com/bokchan/pixi-cookiecutter-bioinformations/actions/)
+[![Codecov](https://img.shields.io/codecov/c/github/bokchan/pixi-cookiecutter-bioinformations)](https://app.codecov.io/github/bokchan/pixi-cookiecutter-bioinformations)
 
 _A logical, reasonably standardized, but flexible project structure for doing and sharing bioinformatics work._
 
@@ -54,7 +54,29 @@ The cookiecutter will automatically
 The directory structure of your new project looks like this:
 
 ```
-Update after merging the Max Planck Cookiecutter template
+├── .coveragerc        <- Configuration for coverage.py
+├── .editorconfig      <- EditorConfig for consistent coding style
+├── .envrc             <- Environment configuration for direnv
+├── .github/           <- GitHub workflows and configuration
+├── .gitignore         <- Git ignore file
+├── .pre-commit-config.yaml <- Pre-commit hooks configuration
+├── LICENSE            <- Project license file
+├── README.md          <- The top-level README for developers using this project
+├── pyproject.toml     <- Project configuration and dependencies managed by pixi
+├── config/            <- Configuration files for analysis
+├── docs/              <- Sphinx documentation
+├── img/               <- Images and figures
+├── notebooks/         <- Jupyter notebooks for exploration and analysis
+├── references/        <- Data dictionaries, manuals, and explanatory materials
+├── reports/           <- Generated analysis outputs
+├── resources/         <- Raw and external data (excluded from git)
+├── sandbox/           <- Testing and experimentation space (excluded from git)
+├── scripts/           <- Utility scripts
+├── src/               <- Source code for the project
+├── tests/             <- Unit tests
+├── workflow/          <- Snakemake workflow files
+├── workspace/         <- Intermediate results (excluded from git)
+└── [package_name]/    <- Main Python package
 ```
 
 
