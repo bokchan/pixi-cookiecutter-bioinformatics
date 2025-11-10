@@ -1,10 +1,10 @@
 # Pixi Cookiecutter
-[![License](https://img.shields.io/github/license/bokchan/pixi-cookiecutter-bioinformations)](https://github.com/bokchan/pixi-cookiecutter-bioinformations/blob/main/LICENSE)
+[![License](https://img.shields.io/github/license/bokchan/pixi-cookiecutter-bioinformatics)](https://github.com/bokchan/pixi-cookiecutter-bioinformatics/blob/main/LICENSE)
 [![Powered by: Pixi](https://img.shields.io/badge/powered_by-pixi-facc15)](https://pixi.sh)
 [![Code style: ruff](https://img.shields.io/badge/code_style-ruff-000000.svg)](https://github.com/astral-sh/ruff)
 [![Typing: ty](https://img.shields.io/badge/typing-ty-EFC621.svg)](https://github.com/astral-sh/ty)
-[![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/bokchan/pixi-cookiecutter-bioinformations/test.yml?branch=main&logo=github-actions)](https://github.com/bokchan/pixi-cookiecutter-bioinformations/actions/)
-[![Codecov](https://img.shields.io/codecov/c/github/bokchan/pixi-cookiecutter-bioinformations)](https://app.codecov.io/github/bokchan/pixi-cookiecutter-bioinformations)
+[![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/bokchan/pixi-cookiecutter-bioinformatics/test.yml?branch=main&logo=github-actions)](https://github.com/bokchan/pixi-cookiecutter-bioinformatics/actions/)
+[![Codecov](https://img.shields.io/codecov/c/github/bokchan/pixi-cookiecutter-bioinformatics)](https://app.codecov.io/github/bokchan/pixi-cookiecutter-bioinformatics)
 
 _A logical, reasonably standardized, but flexible project structure for doing and sharing bioinformatics work._
 
@@ -37,7 +37,7 @@ See [notes.md](notes.md#Project-Tools) for optional dependencies and [alternativ
 
 ```sh
 # Use cookiecutter to create a project from this template
-cookiecutter gh:bokchan/pixi-cookiecutter-bioinformations
+cookiecutter gh:bokchan/pixi-cookiecutter-bioinformatics
 ```
 
 The cookiecutter will automatically
