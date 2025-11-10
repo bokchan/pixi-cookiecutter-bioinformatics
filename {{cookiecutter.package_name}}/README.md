@@ -63,4 +63,3 @@ Project Organization
 
 ## Credits
 This package was created with [Cookiecutter](https://github.com/audreyr/cookiecutter) and the cookiecutter project templates from [jevandezande/pixi-cookiecutter](https://github.com/jevandezande/pixi-cookiecutter) and [maxplanck-ie/cookiecutter-bioinformatics-project](https://github.com/maxplanck-ie/cookiecutter-bioinformatics-project)
-
