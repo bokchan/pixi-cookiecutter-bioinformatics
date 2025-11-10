@@ -1,9 +1,9 @@
 # Pixi Cookiecutter
-[![License](https://img.shields.io/github/license/jevandezande/pixi-cookiecutter)](https://github.com/jevandezande/pixi-cookiecutter/blob/master/LICENSE)
+[![License](https://img.shields.io/github/license/bokchan/pixi-cookiecutter-bioinformations)](https://github.com/bokchan/pixi-cookiecutter-bioinformations/blob/main/LICENSE)
 [![Powered by: Pixi](https://img.shields.io/badge/powered_by-pixi-facc15)](https://pixi.sh)
 [![Code style: ruff](https://img.shields.io/badge/code_style-ruff-000000.svg)](https://github.com/astral-sh/ruff)
 [![Typing: ty](https://img.shields.io/badge/typing-ty-EFC621.svg)](https://github.com/astral-sh/ty)
-[![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/jevandezande/pixi-cookiecutter/test.yml?branch=master&logo=github-actions)](https://github.com/jevandezande/pixi-cookiecutter/actions/)
+[![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/bokchan/pixi-cookiecutter-bioinformations/test.yml?branch=master&logo=github-actions)](https://github.com/bokchan/pixi-cookiecutter-bioinformations/actions/)
 [![Codecov](https://img.shields.io/codecov/c/github/jevandezande/pixi-cookiecutter)](https://app.codecov.io/github/jevandezande/pixi-cookiecutter)
 
 [Cookiecutter](https://github.com/audreyr/cookiecutter) for setting up [pixi](https://pixi.sh/) projects with all the necessary features for modern python development.
@@ -33,7 +33,7 @@ See [notes.md](notes.md#Project-Tools) for optional dependencies and [alternativ
 
 ```sh
 # Use cookiecutter to create a project from this template
-cookiecutter gh:jevandezande/pixi-cookiecutter
+cookiecutter gh:bokchan/pixi-cookiecutter-bioinformations
 ```
 
 The cookiecutter will automagically
@@ -51,5 +51,3 @@ The cookiecutter will automagically
 - Install [direnv](https://pixi.sh/latest/integration/third_party/direnv) to automagically load the environment.
 
 Read [notes](notes.md) for more tips.
-
-If you are interested in using Poetry to manage your project, checkout [poetry-cookiecutter](https://github.com/jevandezande/poetry-cookiecutter), which served as a template for this cookiecutter.
