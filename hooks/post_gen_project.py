@@ -93,8 +93,73 @@ def git_init() -> None:
     call("git init")
 
 
+def process_dependency(dependency: str) -> str:
+    """
+    Process a dependency.
+
+    :param dependency: dependency to process
+    :return: processed dependency in the format 'package = "version"'
+
+    >>> process_dependency("pytest")
+    'pytest = "*"'
+    >>> process_dependency("matplotlib@>=3.7.2")
+    'matplotlib = ">=3.7.2"'
+    >>> process_dependency("more-itertools@10.*")
+    'more-itertools = "10.*"'
+    >>> process_dependency("")
+    Traceback (most recent call last):
+    ...
+    ValueError: Blank dependency
+    >>> process_dependency("hello@1.2.3@v40")
+    Traceback (most recent call last):
+    ...
+    ValueError: Unable to process dependency='hello@1.2.3@v40'
+    """
+    if not dependency:
+        raise ValueError("Blank dependency")
+
+    match dependency.split("@"):
+        case [package]:
+            return f'{package} = "*"'
+        case [package, version]:
+            return f'{package} = "{version}"'
+        case _:
+            raise ValueError(f"Unable to process {dependency=}")
+
+
+def process_dependencies(deps: str) -> str:
+    r"""
+    Process a space separated list of dependencies.
+
+    :param deps: dependencies to process
+    :return: processed dependencies in the format 'package = "version"'
+
+    >>> process_dependencies(' ')
+    ''
+    >>> process_dependencies("pytest matplotlib@~3.7 black@!=1.2.3")
+    'pytest = "*"\nmatplotlib = "~3.7"\nblack = "!=1.2.3"\n'
+    """
+    if not deps.strip():
+        return ""
+
+    return "\n".join(map(process_dependency, deps.split())) + "\n"
+
+
 def update_dependencies() -> None:
-    """Update the dependencies in pixi.lock."""
+    """Add and update the dependencies in pyproject.toml and pixi.lock."""
+    # Extra space and .strip() avoids accidentally creating '""""'
+    dependencies = process_dependencies("""{{cookiecutter.pixi_dependencies}} """.strip())
+    dev_dependencies = process_dependencies("""{{cookiecutter.pixi_test_dependencies}} """.strip())
+
+    with open("pyproject.toml") as f:
+        contents = (
+            f.read()
+            .replace("{pixi_dependencies}\n", dependencies)
+            .replace("{pixi_test_dependencies}\n", dev_dependencies)
+        )
+    with open("pyproject.toml", "w") as f:
+        f.write(contents)
+
     call("pixi update")
 
 

@@ -7,22 +7,15 @@ license = "{{cookiecutter.license}}"
 version = "0.0.1"
 readme = "README.md"
 keywords = []
-authors = [{name = "{{cookiecutter.author_name}}"{% if cookiecutter.email %}, email = "{{cookiecutter.email}}"{% endif %}}]
+authors = [{name = "{{cookiecutter.author_name}}"}]
 requires-python = ">={python_version}"
 
 [tool.pixi.workspace]
-channels = ["conda-forge", "bioconda"]
+channels = ["conda-forge"]
 platforms = ["linux-64", "osx-arm64"]
 
 [tool.pixi.dependencies]
-{% for dep in cookiecutter.pixi_dependencies.split() -%}
-{% if '@' in dep -%}
-{% set pkg, ver = dep.split('@', 1) -%}
-{{ pkg }} = "{{ ver }}"
-{% else -%}
-{{ dep }} = "*"
-{% endif -%}
-{% endfor %}
+{pixi_dependencies}
 
 [tool.pixi.pypi-dependencies]
 {{cookiecutter.package_name}} = { path = ".", editable = true }
@@ -43,14 +36,7 @@ pytest = ">=8.3"
 pytest-cov = ">=6.0"
 ruff = ">=0.11"
 pre-commit = ">=4.2"
-{% for dep in cookiecutter.pixi_test_dependencies.split() -%}
-{% if '@' in dep -%}
-{% set pkg, ver = dep.split('@', 1) -%}
-{{ pkg }} = "{{ ver }}"
-{% else -%}
-{{ dep }} = "*"
-{% endif -%}
-{% endfor %}
+{pixi_test_dependencies}
 
 [tool.pixi.feature.dev.pypi-dependencies]
 ty = "*"
