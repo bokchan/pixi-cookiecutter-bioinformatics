@@ -7,8 +7,6 @@
 [![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/{{cookiecutter.github_username}}/{{cookiecutter.package_name}}/test.yml?branch=master&logo=github-actions)]({{cookiecutter.project_url}}/actions/)
 [![Codecov](https://img.shields.io/codecov/c/github/{{cookiecutter.github_username}}/{{cookiecutter.package_name}})](https://codecov.io/gh/{{cookiecutter.github_username}}/{{cookiecutter.package_name}})
 
-{{cookiecutter.description}}
-
 Project Organization
 ------------
 ```
@@ -47,7 +45,7 @@ Project Organization
 │
 ├── scripts            <- A place for short shell or python scripts.
 │
-├── setup.py           <- Makes project pip installable (pip install -e .) so src can be importe
+├── setup.py           <- Makes project pip installable (pip install -e .) so src can be imported
 │
 ├── src                <- Source code for use in this project.
 │   ├── __init__.py    <- Makes src a Python module
