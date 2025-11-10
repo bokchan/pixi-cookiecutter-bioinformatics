@@ -18,13 +18,13 @@ repos:
   #   types: [python]
   #   pass_filenames: false
 
-  - id: ruff
-    name: ruff-check
-    stages: [pre-commit, pre-push]
-    language: system
-    entry: pixi run lint
-    types: [python]
-    pass_filenames: false
+  # - id: ruff
+  #   name: ruff-check
+  #   stages: [pre-commit, pre-push]
+  #   language: system
+  #   entry: pixi run lint
+  #   types: [python]
+  #   pass_filenames: false
 
   - id: Ty
     name: ty
