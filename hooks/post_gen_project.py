@@ -151,6 +151,12 @@ def update_dependencies() -> None:
     dependencies = process_dependencies("""{{cookiecutter.pixi_dependencies}} """.strip())
     dev_dependencies = process_dependencies("""{{cookiecutter.pixi_test_dependencies}} """.strip())
 
+    # If no dependencies, add a comment to keep the section valid
+    if not dependencies:
+        dependencies = "# Add your project dependencies here\n"
+    if not dev_dependencies:
+        dev_dependencies = "# Add your test dependencies here\n"
+
     with open("pyproject.toml") as f:
         contents = (
             f.read()
@@ -214,7 +220,7 @@ def setup_remote(remote: str = "origin") -> None:
         git_add_remote(remote, "{{cookiecutter.project_url}}")
 
 
-def git_add_remote(remote: str, url: str, protocol: PROTOCOL = "git") -> None:
+def git_add_remote(remote: str, url: str, protocol: PROTOCOL = "https") -> None:
     """
     Add a remote to the git repository.
 
@@ -222,9 +228,10 @@ def git_add_remote(remote: str, url: str, protocol: PROTOCOL = "git") -> None:
     :param url: url of remote
     :param protocol: protocol of the remote ("git" or "https")
     """
-    if protocol == "git":
+    if protocol == "git" and url.startswith("https://"):
+        # Convert https URL to git URL
         _, _, hostname, path = url.split("/", 3)
-        url = f"{protocol}@{hostname}:{path}"
+        url = f"git@{hostname}:{path}"
 
     call(f"git remote add {remote} {url}")
 
