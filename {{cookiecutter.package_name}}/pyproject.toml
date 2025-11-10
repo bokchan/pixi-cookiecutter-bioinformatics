@@ -20,6 +20,17 @@ platforms = ["linux-64", "osx-arm64"]
 [tool.pixi.pypi-dependencies]
 {{cookiecutter.package_name}} = { path = ".", editable = true }
 
+[tool.pixi.tasks]
+# Data processing tasks
+clean = "find . -type f -name '*.py[co]' -delete && find . -type d -name '__pycache__' -delete"
+fetch-data = "echo 'Implement fetch of data' && echo 'Suggested commands:' && echo '  ln -s --relative /path/to/your/data resources/raw_data/' && echo '  wget https://url.com/of/your/data -P resources/raw_data/'"
+pipeline = "echo 'Implement running of pipeline' && echo 'Suggested commands:' && echo '  snakemake -s workflow/Snakefile -j 1 all' && echo '  snakemake -s workflow/Snakefile --profile slurm all'"
+data = { depends-on = ["fetch-data", "pipeline"] }
+
+# Utility tasks
+setup = "echo 'Setting up project directories...' && mkdir -p resources/raw_data resources/external results workspace sandbox"
+help = "echo 'Available pixi tasks:' && echo '  clean      - Delete compiled Python files and caches' && echo '  fetch-data - Fetch raw data (implement me!)' && echo '  pipeline   - Execute the data pipeline (implement me!)' && echo '  data       - Make dataset (fetch + pipeline)' && echo '  setup      - Create project directory structure' && echo '' && echo 'Development tasks (use -e dev):' && echo '  fmt        - Format code with ruff' && echo '  lint       - Lint code with ruff' && echo '  test       - Run tests with pytest' && echo '  types      - Check types with ty' && echo '  all        - Run all dev checks (fmt + lint + types + test)'"
+
 [tool.pixi.environments]
 default = { solve-group = "default" }
 dev = { features = ["dev"], solve-group = "default"}
