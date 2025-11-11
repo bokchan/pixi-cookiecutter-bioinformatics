@@ -12,7 +12,7 @@ requires-python = ">={python_version}"
 
 [tool.pixi.workspace]
 channels = ["conda-forge", "bioconda"]
-platforms = ["linux-64", "osx-arm64", "win-64", "linux-aarch64", "osx-64"]
+platforms = ["linux-64", "osx-arm64", "linux-aarch64", "osx-64"]
 
 [tool.pixi.dependencies]
 {pixi_dependencies}
@@ -28,8 +28,8 @@ pipeline = "echo 'Implement running of pipeline' && echo 'Suggested commands:' &
 data = { depends-on = ["fetch-data", "pipeline"] }
 
 # Utility tasks
-setup = "echo 'Setting up project directories...' && mkdir -p resources/raw_data resources/external results workspace sandbox"
-help = "echo 'Available pixi tasks:' && echo '  clean      - Delete compiled Python files and caches' && echo '  fetch-data - Fetch raw data (implement me!)' && echo '  pipeline   - Execute the data pipeline (implement me!)' && echo '  data       - Make dataset (fetch + pipeline)' && echo '  setup      - Create project directory structure' && echo '' && echo 'Development tasks (use -e dev):' && echo '  fmt        - Format code with ruff' && echo '  lint       - Lint code with ruff' && echo '  test       - Run tests with pytest' && echo '  types      - Check types with ty' && echo '  all        - Run all dev checks (fmt + lint + types + test)'"
+setup-dirs = """echo 'Setting up project directories...' &&
+    mkdir -p resources/raw_data resources/external results workspace sandbox"""
 
 [tool.pixi.environments]
 default = { solve-group = "default" }
@@ -40,7 +40,8 @@ fmt = { cmd="ruff format ." }
 lint = { cmd="ruff check . --fix" }
 types = { cmd="ty check" }
 test = { cmd="pytest" }
-all = { depends-on = ["fmt", "lint", "types", "test"] }
+snkfmt = { cmd="snakefmt workflow" }
+all = { depends-on = ["fmt", "lint", "types", "test", "snakefmt"] }
 
 [tool.pixi.feature.dev.dependencies]
 pytest = ">=8.3"
