@@ -1,0 +1,21 @@
+# Extended sample metadata examples
+# Copy relevant columns to your config/samples.tsv
+
+sample_id	condition	treatment	timepoint	replicate	fastq_1	fastq_2	batch	organism	tissue	platform	read_length	library_prep	notes
+sample_001	control	none	0h	1	resources/raw_data/sample_001_R1.fastq.gz	resources/raw_data/sample_001_R2.fastq.gz	batch1	human	liver	NovaSeq	150	TruSeq	baseline_control
+sample_002	control	none	0h	2	resources/raw_data/sample_002_R1.fastq.gz	resources/raw_data/sample_002_R2.fastq.gz	batch1	human	liver	NovaSeq	150	TruSeq	baseline_control
+sample_003	treatment	drug_A	2h	1	resources/raw_data/sample_003_R1.fastq.gz	resources/raw_data/sample_003_R2.fastq.gz	batch1	human	liver	NovaSeq	150	TruSeq	early_response
+sample_004	treatment	drug_A	2h	2	resources/raw_data/sample_004_R1.fastq.gz	resources/raw_data/sample_004_R2.fastq.gz	batch2	human	liver	NovaSeq	150	TruSeq	early_response
+sample_005	treatment	drug_A	6h	1	resources/raw_data/sample_005_R1.fastq.gz	resources/raw_data/sample_005_R2.fastq.gz	batch1	human	liver	NovaSeq	150	TruSeq	late_response
+sample_006	treatment	drug_A	6h	2	resources/raw_data/sample_006_R1.fastq.gz	resources/raw_data/sample_006_R2.fastq.gz	batch2	human	liver	NovaSeq	150	TruSeq	late_response
+
+# Single-cell RNA-seq example
+sample_id	condition	cell_type	fastq_1	fastq_2	fastq_3	chemistry	expected_cells
+sc_sample_1	control	PBMC	resources/raw_data/sc_sample_1_S1_L001_R1_001.fastq.gz	resources/raw_data/sc_sample_1_S1_L001_R2_001.fastq.gz	resources/raw_data/sc_sample_1_S1_L001_R3_001.fastq.gz	v3	5000
+sc_sample_2	treatment	PBMC	resources/raw_data/sc_sample_2_S1_L001_R1_001.fastq.gz	resources/raw_data/sc_sample_2_S1_L001_R2_001.fastq.gz	resources/raw_data/sc_sample_2_S1_L001_R3_001.fastq.gz	v3	5000
+
+# Variant calling example
+sample_id	condition	population	fastq_1	fastq_2	family_id	sex	affected_status
+WGS_001	case	EUR	resources/raw_data/WGS_001_R1.fastq.gz	resources/raw_data/WGS_001_R2.fastq.gz	FAM001	M	affected
+WGS_002	control	EUR	resources/raw_data/WGS_002_R1.fastq.gz	resources/raw_data/WGS_002_R2.fastq.gz	FAM001	F	unaffected
+WGS_003	control	EUR	resources/raw_data/WGS_003_R1.fastq.gz	resources/raw_data/WGS_003_R2.fastq.gz	FAM002	M	unaffected

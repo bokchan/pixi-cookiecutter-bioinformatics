@@ -1,0 +1,7 @@
+# Environment for read trimming
+name: trimming
+channels:
+  - conda-forge
+  - bioconda
+dependencies:
+  - trimmomatic=0.39

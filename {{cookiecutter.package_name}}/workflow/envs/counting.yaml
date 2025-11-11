@@ -1,0 +1,7 @@
+# Environment for read counting
+name: counting
+channels:
+  - conda-forge
+  - bioconda
+dependencies:
+  - subread=2.0.6

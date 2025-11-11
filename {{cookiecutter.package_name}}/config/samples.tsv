@@ -1,0 +1,5 @@
+sample_id	condition	fastq_1	fastq_2
+sample_01	control	resources/raw_data/sample_01_R1.fastq.gz	resources/raw_data/sample_01_R2.fastq.gz
+sample_02	control	resources/raw_data/sample_02_R1.fastq.gz	resources/raw_data/sample_02_R2.fastq.gz
+sample_03	treatment	resources/raw_data/sample_03_R1.fastq.gz	resources/raw_data/sample_03_R2.fastq.gz
+sample_04	treatment	resources/raw_data/sample_04_R1.fastq.gz	resources/raw_data/sample_04_R2.fastq.gz

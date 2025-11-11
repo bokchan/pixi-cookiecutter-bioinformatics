@@ -1,0 +1,27 @@
+# Configuration file for {{cookiecutter.project_name}}
+# Customize this file for your specific analysis needs
+
+# Project information
+project:
+  name: "{{cookiecutter.project_name}}"
+  description: "{{cookiecutter.description}}"
+
+# Data directories
+data:
+  raw_data_dir: "resources/raw_data"
+  results_dir: "results"
+  temp_dir: "workspace"
+
+# Reference files (update paths to your reference data)
+reference:
+  genome: "resources/external/genome.fa"  # TODO: Add path to your reference genome
+  annotation: "resources/external/annotation.gtf"  # TODO: Add path to your annotation file
+
+# Analysis parameters (customize for your experiment)
+analysis:
+  # TODO: Set parameters specific to your analysis type
+  threads: 4
+  quality_threshold: 20
+
+# Add more sections as needed for your specific analysis
+# See docs/config_examples.yaml for more comprehensive examples
