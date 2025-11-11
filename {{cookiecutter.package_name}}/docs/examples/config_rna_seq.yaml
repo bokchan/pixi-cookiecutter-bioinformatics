@@ -1,0 +1,57 @@
+# Complete RNA-seq analysis configuration example
+# Copy relevant sections to your config/config.yaml
+
+project:
+  name: "RNA-seq Analysis"
+  description: "Differential gene expression analysis"
+
+data:
+  raw_data_dir: "resources/raw_data"
+  results_dir: "results"
+  temp_dir: "workspace"
+
+reference:
+  genome: "resources/external/GRCh38.primary_assembly.genome.fa"
+  annotation: "resources/external/gencode.v44.annotation.gtf"
+  index_dir: "resources/external/STAR_index"
+
+quality_control:
+  fastqc:
+    threads: 4
+  multiqc:
+    config: "config/multiqc_config.yaml"
+
+trimming:
+  adapters: "resources/external/TruSeq3-PE.fa"
+  quality_threshold: 20
+  min_length: 36
+  threads: 8
+
+alignment:
+  aligner: "star"
+  star:
+    threads: 16
+    outFilterMismatchNmax: 2
+    alignIntronMin: 20
+    alignIntronMax: 1000000
+
+expression:
+  counting_tool: "featurecounts"
+  feature_type: "exon"
+  attribute: "gene_id"
+  strandedness: 0  # 0: unstranded, 1: stranded, 2: reverse stranded
+  min_mapping_quality: 10
+
+differential_expression:
+  tool: "deseq2"
+  padj_threshold: 0.05
+  log2fc_threshold: 1.0
+  comparisons:
+    - "treatment_vs_control"
+
+resources:
+  default_threads: 4
+  memory:
+    alignment: 32
+    counting: 8
+  tmp_dir: "/tmp"

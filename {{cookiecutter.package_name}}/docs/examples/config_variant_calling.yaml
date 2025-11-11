@@ -1,0 +1,51 @@
+# Variant calling pipeline configuration example
+# Copy relevant sections to your config/config.yaml
+
+project:
+  name: "Variant Calling Analysis"
+  description: "Genome-wide variant detection and annotation"
+
+data:
+  raw_data_dir: "resources/raw_data"
+  results_dir: "results"
+  temp_dir: "workspace"
+
+reference:
+  genome: "resources/external/GRCh38.primary_assembly.genome.fa"
+  index_dir: "resources/external/bwa_index"
+  known_sites: "resources/external/dbsnp_146.hg38.vcf.gz"
+
+quality_control:
+  fastqc:
+    threads: 4
+
+alignment:
+  aligner: "bwa"
+  bwa:
+    threads: 16
+    algorithm: "mem"
+
+variant_calling:
+  caller: "gatk"
+  gatk:
+    base_quality_recalibration: true
+    known_sites: "resources/external/dbsnp_146.hg38.vcf.gz"
+  filtering:
+    min_qual: 30
+    min_depth: 10
+    max_depth: 1000
+
+annotation:
+  tool: "snpeff"
+  database: "hg38"
+  additional_databases:
+    - "clinvar"
+    - "cosmic"
+    - "dbsnp"
+
+resources:
+  default_threads: 8
+  memory:
+    alignment: 32
+    variant_calling: 64
+    annotation: 16

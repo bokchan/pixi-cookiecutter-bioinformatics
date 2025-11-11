@@ -1,0 +1,9 @@
+# Environment for alignment tools
+name: alignment
+channels:
+  - conda-forge
+  - bioconda
+dependencies:
+  - star=2.7.11a
+  - samtools=1.19.2
+  - bc=1.07.1

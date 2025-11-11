@@ -1,4 +1,66 @@
-# Main entrypoint of the workflow.
+# Main entrypoint of the workflow for {{cookiecutter.project_name}}
 # Please follow the best practices:
-# https://snakemake.readthedocs.io/en/stable/snakefiles/best_practices.html,
-# in particular regarding the standardized folder structure mentioned there.
+# https://snakemake.readthedocs.io/en/stable/snakefiles/best_practices.html
+
+import pandas as pd
+
+# Load configuration and sample information
+configfile: "config/config.yaml"
+samples_df = pd.read_csv("config/samples.tsv", sep="\t")
+SAMPLES = samples_df["sample_id"].tolist()
+
+# Include common functions
+include: "rules/common.smk"
+
+# Target rule - defines what the workflow should produce
+rule all:
+    input:
+        # TODO: Define your final output files here
+        # Example: expand("results/{sample}_processed.txt", sample=SAMPLES)
+        "results/analysis_complete.txt"
+
+# Example rule - customize for your analysis
+rule process_sample:
+    input:
+        # TODO: Define input files for each sample
+        fastq1="resources/raw_data/{sample}_R1.fastq.gz",
+        fastq2="resources/raw_data/{sample}_R2.fastq.gz"
+    output:
+        # TODO: Define output files
+        "results/{sample}_processed.txt"
+    params:
+        # TODO: Add parameters from config
+        threads=config["analysis"]["threads"]
+    log:
+        "logs/{sample}.log"
+    shell:
+        # TODO: Replace with your analysis commands
+        """
+        echo "Processing {wildcards.sample}" > {output}
+        echo "Input files: {input.fastq1}, {input.fastq2}" >> {output}
+        echo "Using {params.threads} threads" >> {output}
+        """
+
+# Final summary rule
+rule summarize:
+    input:
+        expand("results/{sample}_processed.txt", sample=SAMPLES)
+    output:
+        "results/analysis_complete.txt"
+    shell:
+        """
+        echo "Analysis completed for all samples:" > {output}
+        echo "Processed samples: {SAMPLES}" >> {output}
+        echo "Total samples: $(echo {input} | wc -w)" >> {output}
+        """
+
+# TODO: Add more rules for your specific analysis
+# Examples:
+# - Quality control with FastQC
+# - Read trimming with Trimmomatic or fastp
+# - Alignment with BWA, STAR, or Bowtie2
+# - Variant calling with GATK or FreeBayes
+# - Gene expression analysis with featureCounts + DESeq2
+# - Functional annotation with SnpEff or VEP
+#
+# See docs/workflow_examples/ for complete analysis templates

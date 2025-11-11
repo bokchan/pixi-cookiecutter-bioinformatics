@@ -23,9 +23,16 @@ platforms = ["linux-64", "osx-arm64", "linux-aarch64", "osx-64"]
 [tool.pixi.tasks]
 # Data processing tasks
 clean = "find . -type f -name '*.py[co]' -delete && find . -type d -name '__pycache__' -delete"
-fetch-data = "echo 'Implement fetch of data' && echo 'Suggested commands:' && echo '  ln -s --relative /path/to/your/data resources/raw_data/' && echo '  wget https://url.com/of/your/data -P resources/raw_data/'"
-pipeline = "echo 'Implement running of pipeline' && echo 'Suggested commands:' && echo '  snakemake -s workflow/Snakefile -j 1 all' && echo '  snakemake -s workflow/Snakefile --profile slurm all'"
-data = { depends-on = ["fetch-data", "pipeline"] }
+setup-dirs = "mkdir -p resources/raw_data resources/external results workspace sandbox"
+pipeline = "snakemake --snakefile workflow/Snakefile --cores 4"
+pipeline-dry = "snakemake --snakefile workflow/Snakefile --dry-run"
+help-setup = """echo 'Quick setup guide:' &&
+    echo '1. Copy your data files to resources/raw_data/' &&
+    echo '2. Edit config/samples.tsv with your sample information' &&
+    echo '3. Edit config/config.yaml with your analysis parameters' &&
+    echo '4. Run: pixi run pipeline' &&
+    echo '' &&
+    echo 'See docs/examples/ for detailed configuration examples'"""
 
 # Utility tasks
 setup-dirs = """echo 'Setting up project directories...' &&
@@ -48,6 +55,9 @@ pytest = ">=8.3"
 pytest-cov = ">=6.0"
 ruff = ">=0.11"
 pre-commit = ">=4.2"
+snakemake = ">=8.20"
+snakefmt = ">=0.10"
+graphviz = "*"
 {pixi_test_dependencies}
 
 [tool.pixi.feature.dev.pypi-dependencies]
