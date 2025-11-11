@@ -30,8 +30,6 @@ jobs:
           cache: true
           environments: dev
 
-      - run: pixi global install direnv
-
       - run: pixi run fmt
       - run: pixi run lint
       - run: pixi run types
@@ -55,7 +53,5 @@ jobs:
 
       - name: Run pre-commit
         run: |
-          ls -la ..
           cd ../pixi_project
-          direnv allow .
           pixi run -e dev pre-commit run --all-files
