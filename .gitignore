@@ -180,3 +180,6 @@ pyrightconfig.json
 
 # VSCode settings
 .vscode
+
+# User files
+.DS_Store
