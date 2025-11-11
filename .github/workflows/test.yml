@@ -35,6 +35,7 @@ jobs:
       - run: pixi run fmt
       - run: pixi run lint
       - run: pixi run types
+      - run: pixi run snkfmt
       - run: pixi run test --cov --cov-report=xml
 
       - name: Upload Coverage to Codecov
@@ -55,7 +56,6 @@ jobs:
 
       - name: Run pre-commit
         run: |
-          ls -la ..
           cd ../pixi_project
           direnv allow .
           pixi run -e dev pre-commit run --all-files
